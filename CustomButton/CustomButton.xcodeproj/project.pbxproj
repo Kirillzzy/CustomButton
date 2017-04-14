@@ -15,6 +15,7 @@
 		8A0F9B0A1EA00E6B00728682 /* CustomButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A0F9B091EA00E6B00728682 /* CustomButton.xib */; };
 		8A0F9B0C1EA00E7500728682 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0F9B0B1EA00E7500728682 /* CustomButton.swift */; };
 		8A0F9B0E1EA00EC000728682 /* UIView+NibLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0F9B0D1EA00EC000728682 /* UIView+NibLoad.swift */; };
+		8A0F9B121EA1327E00728682 /* UIColor+Brightness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0F9B111EA1327E00728682 /* UIColor+Brightness.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		8A0F9B091EA00E6B00728682 /* CustomButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomButton.xib; sourceTree = "<group>"; };
 		8A0F9B0B1EA00E7500728682 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		8A0F9B0D1EA00EC000728682 /* UIView+NibLoad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+NibLoad.swift"; sourceTree = "<group>"; };
+		8A0F9B111EA1327E00728682 /* UIColor+Brightness.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Brightness.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				8A0F9AF71EA00E4800728682 /* AppDelegate.swift */,
+				8A0F9B101EA1326800728682 /* Extensions */,
 				8A0F9B0F1EA00EC700728682 /* CustomButton */,
 				8A0F9AF91EA00E4800728682 /* ViewController.swift */,
 				8A0F9AFB1EA00E4800728682 /* Main.storyboard */,
@@ -79,6 +82,14 @@
 				8A0F9B0B1EA00E7500728682 /* CustomButton.swift */,
 			);
 			name = CustomButton;
+			sourceTree = "<group>";
+		};
+		8A0F9B101EA1326800728682 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8A0F9B111EA1327E00728682 /* UIColor+Brightness.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,6 +170,7 @@
 				8A0F9AFA1EA00E4800728682 /* ViewController.swift in Sources */,
 				8A0F9AF81EA00E4800728682 /* AppDelegate.swift in Sources */,
 				8A0F9B0C1EA00E7500728682 /* CustomButton.swift in Sources */,
+				8A0F9B121EA1327E00728682 /* UIColor+Brightness.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +336,7 @@
 				8A0F9B081EA00E4800728682 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
