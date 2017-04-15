@@ -11,8 +11,10 @@ import UIKit
 class ViewController: UIViewController {
 
   @IBOutlet var customButton: CustomButton!
+
   override func viewDidLoad() {
     super.viewDidLoad()
+    customButton.backgroundColor = .red
   }
 
   @IBAction func buttonPressed(_ sender: Any) {
