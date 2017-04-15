@@ -56,15 +56,22 @@ class CustomButton: UIButton {
   private func updateAppearance() {
     isSetup = true
     if (isSelected || isHighlighted) && isEnabled {
-      backgroundColor = nessesaryBackgroundColor?.tapButtonChangeColor
+      buttonTouchedIn()
     } else {
-      backgroundColor = nessesaryBackgroundColor
+      buttonTouchedOut()
     }
     alpha = isEnabled ? 1 : 0.8
 
     isSetup = false
   }
 
+  private func buttonTouchedIn() {
+    backgroundColor = nessesaryBackgroundColor?.tapButtonChangeColor
+  }
+
+  private func buttonTouchedOut() {
+    backgroundColor = nessesaryBackgroundColor
+  }
 
   override var isHighlighted: Bool {
     didSet {
