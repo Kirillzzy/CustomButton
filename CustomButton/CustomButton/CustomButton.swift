@@ -63,6 +63,7 @@ class CustomButton: UIButton {
   }
 
   private func updateAppearance() {
+    print(state)
     isSetup = true
     if (isSelected || isHighlighted) && isEnabled {
       buttonTouchedIn()
