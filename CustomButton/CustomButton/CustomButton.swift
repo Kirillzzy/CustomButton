@@ -14,7 +14,9 @@ class CustomButton: UIButton {
   private var isSetup = false
   private var notChange = false
 
-  @IBOutlet var mainLabel: UILabel!
+  @IBOutlet var label: UILabel!
+  @IBOutlet var view: UIView!
+  @IBOutlet var viewHeight: NSLayoutConstraint!
 
   override func awakeAfter(using aDecoder: NSCoder) -> Any? {
     return self.loadFromNibIfEmbeddedInDifferentNib()
@@ -22,18 +24,26 @@ class CustomButton: UIButton {
 
   override init(frame: CGRect) {
     super.init(frame: frame)
-    setup()
-
   }
 
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
-    setup()
   }
 
-  private func setup() {
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    setUp()
+  }
+
+  weak var delegate: CustomButtonDelegate?
+
+  private func setUp() {
     layer.masksToBounds = true
     layer.cornerRadius = 10
+    view.backgroundColor? = .clear
+    backgroundColor = .red
+    viewHeight.constant = frame.height
+    view.isHidden = true
   }
 
   override var backgroundColor: UIColor? {
@@ -48,7 +58,6 @@ class CustomButton: UIButton {
         notChange = true
         backgroundColor = oldValue
       }
-
       updateAppearance()
     }
   }
@@ -66,16 +75,19 @@ class CustomButton: UIButton {
   }
 
   private func buttonTouchedIn() {
+    delegate?.buttonIn()
     backgroundColor = nessesaryBackgroundColor?.tapButtonChangeColor
   }
 
   private func buttonTouchedOut() {
+    delegate?.buttonOut()
     backgroundColor = nessesaryBackgroundColor
   }
 
   override var isHighlighted: Bool {
     didSet {
       if oldValue != isHighlighted {
+        notChange = true
         updateAppearance()
       }
     }
@@ -84,6 +96,7 @@ class CustomButton: UIButton {
   override var isEnabled: Bool {
     didSet {
       if oldValue != isEnabled {
+        notChange = true
         updateAppearance()
       }
     }
@@ -92,6 +105,7 @@ class CustomButton: UIButton {
   override var isSelected: Bool {
     didSet {
       if oldValue != isSelected {
+        notChange = true
         updateAppearance()
       }
     }

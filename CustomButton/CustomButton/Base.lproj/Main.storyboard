@@ -25,9 +25,8 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OJu-vp-bCc" customClass="CustomButton" customModule="CustomButton" customModuleProvider="target">
                                 <rect key="frame" x="16" y="283" width="343" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="0PT-ZR-5nY"/>
+                                    <constraint firstAttribute="height" constant="100" id="MaZ-vI-dIJ"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gj2-mN-jEW"/>
                                 </connections>

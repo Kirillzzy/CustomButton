@@ -16,6 +16,7 @@
 		8A0F9B0C1EA00E7500728682 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0F9B0B1EA00E7500728682 /* CustomButton.swift */; };
 		8A0F9B0E1EA00EC000728682 /* UIView+NibLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0F9B0D1EA00EC000728682 /* UIView+NibLoad.swift */; };
 		8A0F9B121EA1327E00728682 /* UIColor+Brightness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0F9B111EA1327E00728682 /* UIColor+Brightness.swift */; };
+		8A365F071EA3EA50005E2BC0 /* CustomButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A365F061EA3EA50005E2BC0 /* CustomButtonDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		8A0F9B0B1EA00E7500728682 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		8A0F9B0D1EA00EC000728682 /* UIView+NibLoad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+NibLoad.swift"; sourceTree = "<group>"; };
 		8A0F9B111EA1327E00728682 /* UIColor+Brightness.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Brightness.swift"; sourceTree = "<group>"; };
+		8A365F061EA3EA50005E2BC0 /* CustomButtonDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButtonDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				8A0F9B0D1EA00EC000728682 /* UIView+NibLoad.swift */,
 				8A0F9B091EA00E6B00728682 /* CustomButton.xib */,
 				8A0F9B0B1EA00E7500728682 /* CustomButton.swift */,
+				8A365F061EA3EA50005E2BC0 /* CustomButtonDelegate.swift */,
 			);
 			name = CustomButton;
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 				8A0F9AF81EA00E4800728682 /* AppDelegate.swift in Sources */,
 				8A0F9B0C1EA00E7500728682 /* CustomButton.swift in Sources */,
 				8A0F9B121EA1327E00728682 /* UIColor+Brightness.swift in Sources */,
+				8A365F071EA3EA50005E2BC0 /* CustomButtonDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

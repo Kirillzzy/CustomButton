@@ -10,11 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
 
-  @IBOutlet var customButton: CustomButton!
+  @IBOutlet var customButton: CustomButton! {
+    didSet {
+      customButton.backgroundColor = .red
+    }
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    customButton.backgroundColor = .red
+    customButton.delegate = self
   }
 
   @IBAction func buttonPressed(_ sender: Any) {
@@ -22,3 +26,12 @@ class ViewController: UIViewController {
   }
 }
 
+extension ViewController: CustomButtonDelegate {
+  func buttonIn() {
+    print("In")
+  }
+
+  func buttonOut() {
+    print("Out")
+  }
+}
