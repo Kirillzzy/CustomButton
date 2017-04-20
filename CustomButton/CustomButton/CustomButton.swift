@@ -21,6 +21,7 @@ class CustomButton: UIButton {
   private let textForLabel = "Tap me"
   fileprivate var timer: Timer!
   @IBOutlet var leadingCloudImage: NSLayoutConstraint!
+
   override func awakeAfter(using aDecoder: NSCoder) -> Any? {
     return self.loadFromNibIfEmbeddedInDifferentNib()
   }
@@ -140,7 +141,28 @@ class CustomButton: UIButton {
     }
   }
 
-//  override var isTracking: Bool
+  override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
+    super.beginTracking(touch, with: event)
+    print("BeginTracking")
+    return true
+  }
+
+  override func continueTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
+    super.continueTracking(touch, with: event)
+    print("ContinueTracking")
+    return true
+  }
+
+  override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
+    super.endTracking(touch, with: event)
+    print("EndTracking")
+  }
+
+  override func cancelTracking(with event: UIEvent?) {
+    super.cancelTracking(with: event)
+    print("CancelTracking")
+  }
+
 }
 
 // MARK: - For timer
