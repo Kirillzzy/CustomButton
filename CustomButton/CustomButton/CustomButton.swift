@@ -14,10 +14,13 @@ class CustomButton: UIButton {
   private var isSetup = false
   private var notChange = false
 
-  @IBOutlet var label: UILabel!
-  @IBOutlet var view: UIView!
-  @IBOutlet var viewHeight: NSLayoutConstraint!
+  @IBOutlet fileprivate var label: UILabel!
+  @IBOutlet fileprivate var view: UIView!
+  @IBOutlet fileprivate var viewHeight: NSLayoutConstraint!
 
+  private let textForLabel = "Tap me"
+  fileprivate var timer: Timer!
+  @IBOutlet var leadingCloudImage: NSLayoutConstraint!
   override func awakeAfter(using aDecoder: NSCoder) -> Any? {
     return self.loadFromNibIfEmbeddedInDifferentNib()
   }
@@ -41,9 +44,10 @@ class CustomButton: UIButton {
     layer.masksToBounds = true
     layer.cornerRadius = 10
     view.backgroundColor? = .clear
-    backgroundColor = .red
+    backgroundColor = UIColor.purple
     viewHeight.constant = frame.height
     view.isHidden = true
+    label.text = textForLabel
   }
 
   override var backgroundColor: UIColor? {
@@ -63,8 +67,8 @@ class CustomButton: UIButton {
   }
 
   private func updateAppearance() {
-    print(state)
     isSetup = true
+    print(isFocused)
     if (isSelected || isHighlighted) && isEnabled {
       buttonTouchedIn()
     } else {
@@ -78,11 +82,35 @@ class CustomButton: UIButton {
   private func buttonTouchedIn() {
     delegate?.buttonIn()
     backgroundColor = nessesaryBackgroundColor?.tapButtonChangeColor
+    label.text = ""
+    startTimer()
+    UIView.animate(withDuration: 0.3, animations: {
+      self.viewHeight.constant = 50
+      self.layoutIfNeeded()
+    })
+    leadingCloudImage.constant = -200.0
+    layoutIfNeeded()
+    animateClouds()
+  }
+
+  func animateClouds() {
+    UIView.animate(withDuration: 1.0, animations: {
+      self.leadingCloudImage.constant = self.frame.width
+      self.layoutIfNeeded()
+    })
   }
 
   private func buttonTouchedOut() {
     delegate?.buttonOut()
     backgroundColor = nessesaryBackgroundColor
+    label.text = textForLabel
+    invalidateTimer()
+    UIView.animate(withDuration: 0.3, animations: {
+      self.viewHeight.constant = 100
+      self.layoutIfNeeded()
+    })
+    UIView.commitAnimations()
+    layoutIfNeeded()
   }
 
   override var isHighlighted: Bool {
@@ -112,4 +140,23 @@ class CustomButton: UIButton {
     }
   }
 
+//  override var isTracking: Bool
+}
+
+// MARK: - For timer
+extension CustomButton {
+  func startTimer() {
+    timer = Timer.scheduledTimer(timeInterval: 0.05, target: self,
+                                 selector: #selector(timerAction), userInfo: nil, repeats: true)
+  }
+
+  func timerAction() {
+    label.text = label.text! + "."
+  }
+
+  func invalidateTimer() {
+    if let timer = timer {
+      timer.invalidate()
+    }
+  }
 }
