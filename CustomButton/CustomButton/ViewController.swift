@@ -15,6 +15,7 @@ class ViewController: UIViewController {
       customButton.backgroundColor = .red
     }
   }
+  @IBOutlet var statusLabel: UILabel!
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -28,10 +29,10 @@ class ViewController: UIViewController {
 
 extension ViewController: CustomButtonDelegate {
   func buttonIn() {
-    print("In")
+    statusLabel.text = "In"
   }
 
   func buttonOut() {
-    print("Out")
+    statusLabel.text = "Out"
   }
 }

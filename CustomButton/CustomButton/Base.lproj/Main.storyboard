@@ -27,15 +27,24 @@
                                     <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gj2-mN-jEW"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VbM-Q1-mGb">
+                                <rect key="frame" x="187.5" y="116" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="VbM-Q1-mGb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="96" id="R3A-sy-2dM"/>
                             <constraint firstItem="OJu-vp-bCc" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="YLP-JY-Dyq"/>
+                            <constraint firstItem="VbM-Q1-mGb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="flA-xv-ubg"/>
                             <constraint firstItem="OJu-vp-bCc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rya-gE-HvU"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="customButton" destination="OJu-vp-bCc" id="LTm-Iu-bWM"/>
+                        <outlet property="statusLabel" destination="VbM-Q1-mGb" id="AJl-Wm-9TN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

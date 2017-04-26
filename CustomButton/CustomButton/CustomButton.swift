@@ -103,7 +103,7 @@ class CustomButton: UIButton {
   }
 
   private func animateClouds() {
-    UIView.animate(withDuration: 1.0, animations: {
+    UIView.animate(withDuration: 0.5, animations: {
       self.leadingCloudImage.constant = self.frame.width
       self.layoutIfNeeded()
     }, completion: { _ in
