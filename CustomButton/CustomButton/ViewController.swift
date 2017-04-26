@@ -19,7 +19,6 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     customButton.delegate = self
-    customButton.state
   }
 
   @IBAction func buttonPressed(_ sender: Any) {
