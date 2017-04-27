@@ -86,7 +86,7 @@ class CustomButton: UIButton {
   private func buttonTouchedIn() {
     delegate?.buttonIn()
     backgroundColor = nessesaryBackgroundColor?.tapButtonChangeColor
-    textForLabel = ""
+    textForLabel = ".."
     startTimer()
     UIView.animate(withDuration: 0.3, animations: {
       self.viewHeight.constant = 120.0
@@ -104,7 +104,7 @@ class CustomButton: UIButton {
 
   private func animateClouds() {
     UIView.animate(withDuration: 0.5, animations: {
-      self.leadingCloudImage.constant = self.frame.width
+      self.leadingCloudImage.constant = self.frame.width + 50
       self.layoutIfNeeded()
     }, completion: { _ in
       self.leadingCloudImage.constant = -200.0
