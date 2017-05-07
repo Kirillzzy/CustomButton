@@ -17,6 +17,7 @@ class CustomButton: UIButton {
   @IBOutlet fileprivate var label: UILabel!
   @IBOutlet fileprivate var view: UIView!
   @IBOutlet fileprivate var viewHeight: NSLayoutConstraint!
+  @IBOutlet fileprivate var leadingCloudImage: NSLayoutConstraint!
 
   fileprivate var textForLabel = "" {
     didSet {
@@ -26,14 +27,15 @@ class CustomButton: UIButton {
 
   private let text = "Tap me"
   fileprivate var timer: Timer!
-  @IBOutlet var leadingCloudImage: NSLayoutConstraint!
 
+  // MARK: - For loading from Nib
   override func awakeAfter(using aDecoder: NSCoder) -> Any? {
     return self.loadFromNibIfEmbeddedInDifferentNib()
   }
 
   override init(frame: CGRect) {
     super.init(frame: frame)
+    viewHeight.constant = frame.size.height
   }
 
   required init?(coder aDecoder: NSCoder) {
@@ -89,12 +91,24 @@ class CustomButton: UIButton {
     textForLabel = ".."
     startTimer()
     UIView.animate(withDuration: 0.3, animations: {
-      self.viewHeight.constant = 120.0
+      self.viewHeight.constant += 40.0
       self.layoutIfNeeded()
     })
-    leadingCloudImage.constant = -200.0
+    leadingCloudImage.constant = -200
     layoutIfNeeded()
     animateClouds()
+  }
+
+  private func buttonTouchedOut() {
+    delegate?.buttonOut()
+    backgroundColor = nessesaryBackgroundColor
+    invalidateTimer()
+    label.text = text
+    UIView.commitAnimations()
+    UIView.animate(withDuration: 0.3, animations: {
+      self.updateFrame()
+      self.layoutIfNeeded()
+    })
   }
 
   private func updateFrame() {
@@ -108,18 +122,6 @@ class CustomButton: UIButton {
       self.layoutIfNeeded()
     }, completion: { _ in
       self.leadingCloudImage.constant = -200.0
-    })
-  }
-
-  private func buttonTouchedOut() {
-    delegate?.buttonOut()
-    backgroundColor = nessesaryBackgroundColor
-    invalidateTimer()
-    label.text = text
-    UIView.commitAnimations()
-    UIView.animate(withDuration: 0.3, animations: {
-      self.updateFrame()
-      self.layoutIfNeeded()
     })
   }
 
@@ -150,6 +152,8 @@ class CustomButton: UIButton {
     }
   }
 
+  // MARK: - For understanding touch coordinates
+  /*
   override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
     super.beginTracking(touch, with: event)
     print("BeginTracking")
@@ -171,10 +175,11 @@ class CustomButton: UIButton {
     super.cancelTracking(with: event)
     print("CancelTracking")
   }
+ */
 
 }
 
-// MARK: - For timer
+// MARK: - For timer animation
 extension CustomButton {
   func startTimer() {
     timer = Timer.scheduledTimer(timeInterval: 0.05, target: self,

@@ -9,14 +9,14 @@
 import UIKit
 
 extension UIColor {
-
   var tapButtonChangeColor: UIColor {
     var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0, alpha: CGFloat = 0
     if getRed(&red, green: &green, blue: &blue, alpha: &alpha) {
       red *= 255.0
       green *= 255.0
       blue *= 255.0
-      // Special formula
+      // Special formula from here: 
+      // http://www.nbdtech.com/Blog/archive/2008/04/27/Calculating-the-Perceived-Brightness-of-a-Color.aspx
       let brightness = sqrt(red * red * 0.241 + green * green * 0.691 + blue * blue * 0.068)
       if brightness < 130 {
         return lighterColorForColor()
