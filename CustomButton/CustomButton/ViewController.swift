@@ -10,11 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-  @IBOutlet var customButton: CustomButton! {
-    didSet {
-      customButton.backgroundColor = .red
-    }
-  }
+  @IBOutlet var customButton: CustomButton!
   @IBOutlet var statusLabel: UILabel!
 
   override func viewDidLoad() {
