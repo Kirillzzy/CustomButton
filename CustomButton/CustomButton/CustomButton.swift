@@ -52,7 +52,6 @@ class CustomButton: UIButton {
   private func setUp() {
     layer.masksToBounds = true
     layer.cornerRadius = 10
-    view.backgroundColor? = .clear
     backgroundColor = UIColor.purple
     view.isHidden = true
   }

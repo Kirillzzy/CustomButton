@@ -17,7 +17,7 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JqT-3d-UcB">
                     <rect key="frame" x="0.0" y="0.0" width="488" height="168"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="168" id="84M-oV-D89"/>
                     </constraints>
