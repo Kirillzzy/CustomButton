@@ -1,9 +1,9 @@
 //
 //  UIView+NibLoad.swift
-//  AZTabBarController
+//  CustomButton
 //
-//  Created by Alex Zimin on 15/11/2016.
-//  Copyright © 2016 Alexander Zimin. All rights reserved.
+//  Created by Kirill Averyanov on 21/12/2016.
+//  Copyright © 2016 Kirill Averyanov. All rights reserved.
 //
 
 import UIKit
