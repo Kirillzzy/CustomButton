@@ -16,8 +16,8 @@ class CustomButton: UIButton {
 
   @IBOutlet fileprivate var label: UILabel!
   @IBOutlet fileprivate var view: UIView!
-  @IBOutlet fileprivate var viewHeight: NSLayoutConstraint!
-  @IBOutlet fileprivate var leadingCloudImage: NSLayoutConstraint!
+  @IBOutlet fileprivate var viewHeightConstraint: NSLayoutConstraint!
+  @IBOutlet fileprivate var leadingCloudImageConstraint: NSLayoutConstraint!
 
   fileprivate var textForLabel = "" {
     didSet {
@@ -25,21 +25,12 @@ class CustomButton: UIButton {
     }
   }
 
-  private let text = "Tap me"
+  private let constantExampleText = "Tap me"
   fileprivate var timer: Timer!
 
   // MARK: - For loading from Nib
   override func awakeAfter(using aDecoder: NSCoder) -> Any? {
     return self.loadFromNibIfEmbeddedInDifferentNib()
-  }
-
-  override init(frame: CGRect) {
-    super.init(frame: frame)
-    viewHeight.constant = frame.size.height
-  }
-
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
   }
 
   override func awakeFromNib() {
@@ -90,10 +81,10 @@ class CustomButton: UIButton {
     textForLabel = ".."
     startTimer()
     UIView.animate(withDuration: 0.3, animations: {
-      self.viewHeight.constant += 40.0
+      self.viewHeightConstraint.constant += 40.0
       self.layoutIfNeeded()
     })
-    leadingCloudImage.constant = -200
+    leadingCloudImageConstraint.constant = -200
     layoutIfNeeded()
     animateClouds()
   }
@@ -102,7 +93,7 @@ class CustomButton: UIButton {
     delegate?.buttonOut()
     backgroundColor = nessesaryBackgroundColor
     invalidateTimer()
-    label.text = text
+    label.text = constantExampleText
     UIView.commitAnimations()
     UIView.animate(withDuration: 0.3, animations: {
       self.updateFrame()
@@ -111,16 +102,16 @@ class CustomButton: UIButton {
   }
 
   private func updateFrame() {
-    viewHeight.constant = label.frame.size.height + 30.0
+    viewHeightConstraint.constant = label.frame.size.height + 30.0
     layoutIfNeeded()
   }
 
   private func animateClouds() {
     UIView.animate(withDuration: 0.5, animations: {
-      self.leadingCloudImage.constant = self.frame.width + 50
+      self.leadingCloudImageConstraint.constant = self.frame.width + 50
       self.layoutIfNeeded()
     }, completion: { _ in
-      self.leadingCloudImage.constant = -200.0
+      self.leadingCloudImageConstraint.constant = -200.0
     })
   }
 

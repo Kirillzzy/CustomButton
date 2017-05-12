@@ -51,9 +51,9 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="label" destination="5zW-yZ-8qY" id="kbf-Dx-XEG"/>
-                <outlet property="leadingCloudImage" destination="zlg-Q3-iRf" id="xAv-Al-cie"/>
+                <outlet property="leadingCloudImageConstraint" destination="zlg-Q3-iRf" id="ShM-ln-DkZ"/>
                 <outlet property="view" destination="JqT-3d-UcB" id="hYP-1g-8A5"/>
-                <outlet property="viewHeight" destination="84M-oV-D89" id="xZ6-Ii-jna"/>
+                <outlet property="viewHeightConstraint" destination="84M-oV-D89" id="emc-dE-OZe"/>
             </connections>
             <point key="canvasLocation" x="90" y="-195"/>
         </view>

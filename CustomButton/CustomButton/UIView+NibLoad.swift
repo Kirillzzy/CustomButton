@@ -10,6 +10,7 @@ import UIKit
 
 internal extension UIView {
   class func viewFromNib(withOwner owner: Any? = nil) -> Self {
+    print(String(describing: type(of: self)))
     let name = String(describing: type(of: self)).components(separatedBy: ".")[0]
     let view = UINib(nibName: name, bundle: nil).instantiate(withOwner: owner, options: nil)[0]
     return cast(view)!
