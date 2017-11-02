@@ -176,7 +176,7 @@ extension CustomButton {
                                  selector: #selector(timerAction), userInfo: nil, repeats: true)
   }
 
-  func timerAction() {
+  @objc func timerAction() {
     textForLabel += "."
   }
 
